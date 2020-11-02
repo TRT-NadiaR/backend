@@ -6,8 +6,8 @@ function createRouter(db) {
 
   router.post('/nurseryUserData', (req, res, next) => {
     db.query(
-      'INSERT INTO nurseryUserData (adult_first_name, child_first_name ) VALUES (?, ?,?)',
-      [,req.body.adult_first_name, req.body.child_first_name],
+      'INSERT INTO nurseryUserData (username, email, password, adult_first_name, adult_last_name, child_first_name, child_last_name, phoneHome, phoneMobile ) VALUES (?,?,?,?,?,?,?,?,?)',
+      [req.body.username, req.body.email, req.body.password, req.body.name, req.body.parentLastName, req.body.childName, req.body.childLastName, req.body.phoneHome, req.body.phoneMob],
       (error) => {
         if (error) {
           console.error(error);
